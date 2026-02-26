@@ -17,10 +17,13 @@
                     Nombre
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
-                    A paterno
+                    Apellidos
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
                     Correo
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Telefono
                 </th>
                 <th scope="col" class="px-6 py-3 font-medium">
                     Editar
@@ -40,10 +43,13 @@
                    {{alum.nombre}}
                 </th>
                 <td class="px-6 py-4">
-                    {{alum.apaterno}}
+                    {{alum.apellidos}}
                 </td>
                 <td class="px-6 py-4">
                     {{alum.email}}
+                </td>
+                <td class="px-6 py-4">
+                    {{alum.telefono}}
                 </td>
                 <td class="px-6 py-4">
                   <a href="editar?id={{ alum.id }}" class="text-heading bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">Editar</a>
