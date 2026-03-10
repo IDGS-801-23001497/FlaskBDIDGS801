@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block container %}
+
+<div class="py-12 space-y-12">
+    <a href="{{ url_for('inscripciones.registrar_inscripcion') }}"
+        class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 flex items-center w-fit shadow-lg transition-all transform hover:scale-105">
+        <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        Nueva Inscripción
+    </a>
+
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            
+            Cursos y Alumnos Inscritos
+        </h2>
+        <div class="relative overflow-x-auto bg-white shadow-md rounded-xl border border-gray-200">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b">
+                    <tr>
+                        <th class="px-6 py-4">Curso</th>
+                        <th class="px-6 py-4">Alumnos Inscritos</th>
+                        <th class="px-6 py-4 text-center">Total Alumnos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for curso in cursos %}
+                    <tr class="bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-gray-900">
+                            {{ curso.nombre }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-2">
+                                {% for alumno in curso.alumnos %}
+                                <span class="bg-green-100 text-green-700 text-xs font-medium px-2.5 py-0.5 rounded-full border border-green-200">
+                                    {{ alumno.nombre }} {{ alumno.apellidos }}
+                                </span>
+                                {% else %}
+                                <span class="text-gray-400 italic text-xs">Sin alumnos inscritos</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-center font-bold text-cyan-600">
+                            {{ curso.alumnos|length }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}  
